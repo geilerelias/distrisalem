@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Models\Truck;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
-use App\Models\Truck;
-use Illuminate\Support\Facades\Validator;
 
 
 class TruckController extends Controller
@@ -237,6 +236,8 @@ class TruckController extends Controller
             if ($truck->Consumptions()->get()->count() > 0) {
                 //return response($data, 200);
                 //return response()->json($data);
+                /*return redirect()->back()
+                    ->with("error", "No es posible eliminar este elemento, tiene elementos que dependen de el");*/
 
                 return response(
                     ["error" => "No es posible eliminar este elemento, tiene elementos que dependen de el"],

@@ -7218,6 +7218,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -7282,14 +7287,26 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (result) {
         if (result.isConfirmed) {
           data._method = 'DELETE';
-
-          _this.$inertia.post('/trucks/' + data.id, data).then(function (response) {
+          axios.post('/trucks/' + data.id, data).then(function (response) {
             // handle success
-            console.log(response);
+            console.log('response', response);
+
+            _this.$swal({
+              title: '!Buen trabajo¡',
+              text: "Registro eliminado con exito",
+              icon: 'success'
+            }).then(function () {
+              window.location.href = "".concat(_this.route('trucks.index'));
+            });
           })["catch"](function (error) {
             // handle error
+            _this.$swal({
+              title: 'Error referencial',
+              text: "No es posible eliminar este vehiculo, hay registros que dependen de el",
+              icon: 'error'
+            });
+
             console.log(error);
-          }).then(function () {// always executed
           });
         }
       });
@@ -7633,6 +7650,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/Welcome */ "./resources/js/Jetstream/Welcome.vue");
 /* harmony import */ var _Pages_Datatable_Datatable_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Datatable/Datatable.vue */ "./resources/js/Pages/Datatable/Datatable.vue");
 /* harmony import */ var _Pages_Datatable_Pagination_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Pages/Datatable/Pagination.vue */ "./resources/js/Pages/Datatable/Pagination.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -45398,8 +45424,8 @@ var render = function() {
                         {
                           staticClass: "fill-current w-3 h-3 mx-3",
                           attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            viewBox: "0 0 320 512"
+                            viewBox: "0 0 320 512",
+                            xmlns: "http://www.w3.org/2000/svg"
                           }
                         },
                         [
@@ -45432,8 +45458,8 @@ var render = function() {
                         {
                           staticClass: "fill-current w-3 h-3 mx-3",
                           attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            viewBox: "0 0 320 512"
+                            viewBox: "0 0 320 512",
+                            xmlns: "http://www.w3.org/2000/svg"
                           }
                         },
                         [
@@ -45594,9 +45620,9 @@ var render = function() {
                                           [
                                             _c("path", {
                                               attrs: {
-                                                fill: "currentColor",
                                                 d:
-                                                  "M3 11H15V13H3M3 18V16H21V18M3 6H9V8H3Z"
+                                                  "M3 11H15V13H3M3 18V16H21V18M3 6H9V8H3Z",
+                                                fill: "currentColor"
                                               }
                                             })
                                           ]
@@ -45655,9 +45681,9 @@ var render = function() {
                                           [
                                             _c("path", {
                                               attrs: {
-                                                fill: "currentColor",
                                                 d:
-                                                  "M3,2H6C6.28,2 6.53,2.11 6.71,2.29L8.79,4.38L9.59,3.59C10,3.2 10.5,3 11,3H17C17.5,3 18,3.2 18.41,3.59L19.41,4.59C19.8,5 20,5.5 20,6V19A2,2 0 0,1 18,21H8A2,2 0 0,1 6,19V13L6,12V8C6,7.5 6.2,7 6.59,6.59L7.38,5.79L5.59,4H3V2M11,5V7H17V5H11M11.41,11L9.41,9H8V10.41L10,12.41V15.59L8,17.59V19H9.41L11.41,17H14.59L16.59,19H18V17.59L16,15.59V12.41L18,10.41V9H16.59L14.59,11H11.41M12,13H14V15H12V13Z"
+                                                  "M3,2H6C6.28,2 6.53,2.11 6.71,2.29L8.79,4.38L9.59,3.59C10,3.2 10.5,3 11,3H17C17.5,3 18,3.2 18.41,3.59L19.41,4.59C19.8,5 20,5.5 20,6V19A2,2 0 0,1 18,21H8A2,2 0 0,1 6,19V13L6,12V8C6,7.5 6.2,7 6.59,6.59L7.38,5.79L5.59,4H3V2M11,5V7H17V5H11M11.41,11L9.41,9H8V10.41L10,12.41V15.59L8,17.59V19H9.41L11.41,17H14.59L16.59,19H18V17.59L16,15.59V12.41L18,10.41V9H16.59L14.59,11H11.41M12,13H14V15H12V13Z",
+                                                fill: "currentColor"
                                               }
                                             })
                                           ]
@@ -45715,9 +45741,9 @@ var render = function() {
                                           [
                                             _c("path", {
                                               attrs: {
-                                                fill: "currentColor",
                                                 d:
-                                                  "M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z"
+                                                  "M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z",
+                                                fill: "currentColor"
                                               }
                                             })
                                           ]
@@ -46558,20 +46584,20 @@ var render = function() {
                           {
                             staticClass: "-ml-1 mr-2 h-5 w-5",
                             attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
                               fill: "none",
+                              stroke: "currentColor",
                               viewBox: "0 0 24 24",
-                              stroke: "currentColor"
+                              xmlns: "http://www.w3.org/2000/svg"
                             }
                           },
                           [
                             _c("path", {
                               attrs: {
+                                d:
+                                  "M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z",
                                 "stroke-linecap": "round",
                                 "stroke-linejoin": "round",
-                                "stroke-width": "2",
-                                d:
-                                  "M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                "stroke-width": "2"
                               }
                             })
                           ]
@@ -46673,8 +46699,8 @@ var render = function() {
                               {
                                 staticClass: "fill-current h-4 w-4",
                                 attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  viewBox: "0 0 20 20"
+                                  viewBox: "0 0 20 20",
+                                  xmlns: "http://www.w3.org/2000/svg"
                                 }
                               },
                               [
@@ -46705,7 +46731,7 @@ var render = function() {
                         ],
                         staticClass:
                           "w-full pl-10 pr-4 py-2 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium",
-                        attrs: { type: "search", placeholder: "Search..." },
+                        attrs: { placeholder: "Search...", type: "search" },
                         domProps: { value: _vm.tableData.search },
                         on: {
                           input: [
@@ -46738,23 +46764,23 @@ var render = function() {
                             {
                               staticClass: "w-6 h-6 text-gray-400",
                               attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                viewBox: "0 0 24 24",
-                                "stroke-width": "2",
-                                stroke: "currentColor",
                                 fill: "none",
+                                stroke: "currentColor",
                                 "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
+                                "stroke-linejoin": "round",
+                                "stroke-width": "2",
+                                viewBox: "0 0 24 24",
+                                xmlns: "http://www.w3.org/2000/svg"
                               }
                             },
                             [
                               _c("rect", {
                                 attrs: {
-                                  x: "0",
-                                  y: "0",
-                                  width: "24",
                                   height: "24",
-                                  stroke: "none"
+                                  stroke: "none",
+                                  width: "24",
+                                  x: "0",
+                                  y: "0"
                                 }
                               }),
                               _vm._v(" "),
@@ -46765,8 +46791,8 @@ var render = function() {
                               _c("line", {
                                 attrs: {
                                   x1: "21",
-                                  y1: "21",
                                   x2: "15",
+                                  y1: "21",
                                   y2: "15"
                                 }
                               })
@@ -46806,8 +46832,8 @@ var render = function() {
                                     staticClass:
                                       "dataTables_empty  justify-center",
                                     attrs: {
-                                      valign: "top",
-                                      colspan: _vm.columns.length
+                                      colspan: _vm.columns.length,
+                                      valign: "top"
                                     }
                                   },
                                   [
@@ -46859,24 +46885,23 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              " flex justify-center lg:justify-start items-center"
+                                              " flex justify-center lg:justify-start items-center "
                                           },
                                           [
                                             _c(
                                               "div",
                                               {
                                                 staticClass:
-                                                  "  flex-shrink-0 h-9 w-9"
+                                                  "flex-shrink-0 h-9 w-9 rounded-full"
                                               },
                                               [
                                                 _c("img", {
                                                   staticClass:
-                                                    "h-9 w-9 rounded-full",
+                                                    "h-9 w-9 rounded-full  flex items-center justify-center",
                                                   attrs: {
                                                     src:
                                                       "/storage/" +
-                                                      item.photo_path,
-                                                    alt: ""
+                                                      item.photo_path
                                                   }
                                                 })
                                               ]
@@ -46893,21 +46918,6 @@ var render = function() {
                                                   _vm._v(
                                                     "\n                                                " +
                                                       _vm._s(item.placa) +
-                                                      "\n                                            "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "text-sm leading-5 text-gray-500 "
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                                " +
-                                                      _vm._s(item.modelo) +
                                                       "\n                                            "
                                                   )
                                                 ]
@@ -47083,9 +47093,9 @@ var render = function() {
                                               [
                                                 _c("path", {
                                                   attrs: {
-                                                    fill: "currentColor",
                                                     d:
-                                                      "M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"
+                                                      "M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z",
+                                                    fill: "currentColor"
                                                   }
                                                 })
                                               ]
@@ -47118,9 +47128,9 @@ var render = function() {
                                               [
                                                 _c("path", {
                                                   attrs: {
-                                                    fill: "currentColor",
                                                     d:
-                                                      "M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
+                                                      "M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z",
+                                                    fill: "currentColor"
                                                   }
                                                 })
                                               ]
@@ -47153,9 +47163,9 @@ var render = function() {
                                               [
                                                 _c("path", {
                                                   attrs: {
-                                                    fill: "currentColor",
                                                     d:
-                                                      "M13.5,4A1.5,1.5 0 0,0 12,5.5A1.5,1.5 0 0,0 13.5,7A1.5,1.5 0 0,0 15,5.5A1.5,1.5 0 0,0 13.5,4M13.14,8.77C11.95,8.87 8.7,11.46 8.7,11.46C8.5,11.61 8.56,11.6 8.72,11.88C8.88,12.15 8.86,12.17 9.05,12.04C9.25,11.91 9.58,11.7 10.13,11.36C12.25,10 10.47,13.14 9.56,18.43C9.2,21.05 11.56,19.7 12.17,19.3C12.77,18.91 14.38,17.8 14.54,17.69C14.76,17.54 14.6,17.42 14.43,17.17C14.31,17 14.19,17.12 14.19,17.12C13.54,17.55 12.35,18.45 12.19,17.88C12,17.31 13.22,13.4 13.89,10.71C14,10.07 14.3,8.67 13.14,8.77Z"
+                                                      "M18,10A1,1 0 0,1 17,9A1,1 0 0,1 18,8A1,1 0 0,1 19,9A1,1 0 0,1 18,10M12,10H6V5H12M19.77,7.23L19.78,7.22L16.06,3.5L15,4.56L17.11,6.67C16.17,7 15.5,7.93 15.5,9A2.5,2.5 0 0,0 18,11.5C18.36,11.5 18.69,11.42 19,11.29V18.5A1,1 0 0,1 18,19.5A1,1 0 0,1 17,18.5V14C17,12.89 16.1,12 15,12H14V5C14,3.89 13.1,3 12,3H6C4.89,3 4,3.89 4,5V21H14V13.5H15.5V18.5A2.5,2.5 0 0,0 18,21A2.5,2.5 0 0,0 20.5,18.5V9C20.5,8.31 20.22,7.68 19.77,7.23Z",
+                                                    fill: "currentColor"
                                                   }
                                                 })
                                               ]
@@ -47177,11 +47187,11 @@ var render = function() {
                   _c("pagination", {
                     attrs: { pagination: _vm.pagination },
                     on: {
-                      prev: function($event) {
-                        return _vm.getTrucks(_vm.pagination.prevPageUrl)
-                      },
                       next: function($event) {
                         return _vm.getTrucks(_vm.pagination.nextPageUrl)
+                      },
+                      prev: function($event) {
+                        return _vm.getTrucks(_vm.pagination.prevPageUrl)
                       }
                     }
                   })
@@ -47340,10 +47350,10 @@ var render = function() {
                         "w-full lg:w-3/12 px-4 lg:order-2 flex justify-center"
                     },
                     [
-                      _c("div", { staticClass: "relative" }, [
+                      _c("div", { staticClass: "relative rounded-full" }, [
                         _c("img", {
                           staticClass:
-                            "shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16",
+                            "shadow-xl  rounded-full h-24 w-24 flex items-center justify-center border-none absolute -m-16 -ml-20 lg:-ml-16",
                           staticStyle: { "max-width": "150px" },
                           attrs: {
                             src: "/storage/" + _vm.data.photo_path,

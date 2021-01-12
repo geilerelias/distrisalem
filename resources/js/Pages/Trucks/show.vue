@@ -37,10 +37,10 @@
                     <div class="px-6">
                         <div class="flex flex-wrap justify-center">
                             <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
-                                <div class="relative">
+                                <div class="relative rounded-full">
                                     <img :src="`/storage/${data.photo_path}`"
                                          alt="..."
-                                         class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
+                                         class="shadow-xl  rounded-full h-24 w-24 flex items-center justify-center border-none absolute -m-16 -ml-20 lg:-ml-16"
                                          style="max-width: 150px;">
                                 </div>
                             </div>

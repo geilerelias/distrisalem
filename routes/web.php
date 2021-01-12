@@ -5,6 +5,7 @@ use App\Http\Controllers\TruckController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ConsumptionController;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,11 @@ Route::resource('contacts', ContactController::class);
 Route::get('contacto', function () {
     return view('emails.contact');
 });
+
+Route::get('lading', function () {
+    return Inertia::render('Lading');
+});
+
 
 
 
